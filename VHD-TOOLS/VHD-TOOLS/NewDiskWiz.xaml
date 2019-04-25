@@ -1,0 +1,43 @@
+﻿<Window x:Class="VHD_TOOLS.NewDiskWiz"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VHD_TOOLS"
+        mc:Ignorable="d"
+        Title="NewDiskWiz" Height="377" Width="464">
+    <Grid Margin="0,0,2,-1" Height="337" VerticalAlignment="Top">
+        <GroupBox x:Name="groupBox" Header="Options" Margin="20,37.04,10,0" Height="152.96" VerticalAlignment="Top">
+            <Grid>
+                <CheckBox Click="FormatChkBox_Click" x:Name="FormatChkBox" Content="Format" VerticalAlignment="Top" Margin="10,10,78,0"/>
+
+                <Grid x:Name="FormatGrid" IsEnabled="False" HorizontalAlignment="Left" Width="189">
+                    <Label Content="Format Type:" Margin="19,26,0,0" Height="29" VerticalAlignment="Top" d:LayoutOverrides="VerticalAlignment" HorizontalAlignment="Left" Width="175"/>
+                    <RadioButton x:Name="ntfs" GroupName="FormatType" Height="19" Margin="23.095,0,-5,16.851" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="170.905">NTFS</RadioButton>
+                    <RadioButton x:Name="fat32" GroupName="FormatType" Margin="23.095,0,-5,38.383" HorizontalAlignment="Left" Width="170.905" Height="17" VerticalAlignment="Bottom">FAT32</RadioButton>
+                    <RadioButton x:Name="exfat" GroupName="FormatType" Margin="23.095,55,0,56" HorizontalAlignment="Left" Width="170.905">exFAT</RadioButton>
+                </Grid>
+
+                <Label Content="File Type:" Margin="189,10,43,0" Height="27.761" VerticalAlignment="Top"/>
+                <RadioButton x:Name="FixedSize" GroupName="FileType" Margin="199.822,62.43,19,48.598" Checked="FixedSize_Checked">Fixed Size</RadioButton>
+                <RadioButton x:Name="ExpandableSize"  GroupName="FileType" Margin="199.822,42.761,19,0" Height="19.669" VerticalAlignment="Top" Checked="ExpandableSize_Checked">Expandable Size</RadioButton>
+                <Label Content="Size:(MB)" Height="24" Margin="0,0,128,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="65"/>
+                <TextBox x:Name="ImageSize" HorizontalAlignment="Right" Height="19" VerticalAlignment="Bottom" Width="80" Margin="0,0,48,10" PreviewTextInput="ImageSize_PreviewTextInput" TextChanged="ImageSize_TextChanged"></TextBox>
+
+            </Grid>
+
+        </GroupBox>
+
+        <Label Content="Save" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="39" Margin="20,200,0,0"/>
+        <TextBox x:Name="Input_txtbx" Height="27" Margin="59,203,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="286" />
+        <Button x:Name="Browsebtt" Content="Browse" Click="Browsebtt_Click" HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="94" Margin="350,203,0,0"/>
+        <Button x:Name="Savebtt" IsEnabled="False" Click="Savebtt_Click" HorizontalAlignment="Left" Width="119" Margin="325,252,0,0" Height="75" VerticalAlignment="Top">
+            <WrapPanel>
+                <Image Source="floppy.ico"/>
+                <Label Content="Save" Height="30.25"/>
+            </WrapPanel>
+        </Button>
+
+
+    </Grid>
+</Window>
